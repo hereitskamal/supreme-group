@@ -1,36 +1,121 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+📖 Documentation
+🔧 Project Setup Instructions
+Clone the Repository:
 
-## Getting Started
+bash
+Copy
+Edit
+git clone https://github.com/your-username/supreme-group.git
+cd supreme-group
+Install Dependencies:
 
-First, run the development server:
+bash
+Copy
+Edit
+npm install
+Run Development Server:
 
-```bash
+bash
+Copy
+Edit
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Build for Production:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+bash
+Copy
+Edit
+npm run build
+Start Production Server:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+bash
+Copy
+Edit
+npm run start
+🧩 Component & Directory Structure Overview
+graphql
+Copy
+Edit
+├───app
+│   ├───favicon.ico           # Site favicon
+│   ├───globals.css           # Global styles
+│   ├───layout.tsx            # Root layout (applies to all pages)
+│   └───page.tsx              # Homepage (main entry point)
+│
+├───components
+│   ├───layout
+│   │   ├───Header.tsx        # Sticky top navigation
+│   │   └───Footer.tsx        # Site footer
+│   │
+│   ├───sections
+│   │   ├───HeroSection.tsx       # Landing hero banner
+│   │   ├───ProductSection.tsx    # Product features
+│   │   ├───ContactSection.tsx    # Contact + form section
+│   │   └───_components
+│   │       ├───CircularProgressBarButton.tsx
+│   │       ├───ContactForm.tsx
+│   │       ├───SolutionCard.tsx
+│   │       └───Tab.tsx
+│   │
+│   └───ui
+│       ├───Button.tsx        # Reusable button component
+│       └───Input.tsx         # Reusable input component
+│
+├───hooks
+│   └───useScrollDirection.ts  # Detect scroll direction
+│
+├───lib
+│   └───utils.ts              # Utility functions
+│
+└───types
+    └───index.ts              # Shared TypeScript types
+📱 Responsive Design Strategy
+Mobile-first layout using Tailwind CSS breakpoints (sm, md, lg, etc.)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Sections split modularly for scalable design and reusability.
 
-## Learn More
+Custom UI elements (Button, Input, etc.) adapt fluidly to screen size.
 
-To learn more about Next.js, take a look at the following resources:
+⚡ Performance Optimization Techniques
+Turbopack enabled for faster HMR during development.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Dynamic imports and lazy loading of sections/components.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Schema validation with zod ensures no unnecessary re-renders on invalid forms.
 
-## Deploy on Vercel
+Tailwind's JIT compiler ensures only used CSS is bundled.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Animations via motion leverage native browser GPU acceleration.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+♿ Accessibility Considerations
+Semantic HTML and ARIA tags where required.
+
+Keyboard navigability and :focus styles.
+
+Labels and error messages tied to inputs in forms.
+
+Toasts (react-toastify) are screen reader compatible with aria-live.
+
+📦 Third-Party Libraries Used
+Library	Purpose
+@emailjs/browser	Send emails from frontend (no backend needed)
+react-hook-form	Efficient form state management
+zod	Schema-based validation (used with RHF)
+motion	Smooth animations and transitions
+react-toastify	Toast-style alerts and notifications
+tailwindcss	Utility-first CSS framework
+typescript	Strongly-typed JavaScript development
+
+🧠 Assumptions & Key Decisions
+Zod + React Hook Form combo gives typed, robust form validation.
+
+Component folders were structured by role (layout, sections, UI).
+
+Motion was chosen for advanced, smooth animation performance.
+
+Hooks are isolated to keep reusable logic composable and clean.
+
+🧗 Challenges & Solutions
+Challenge	Solution
+Deep nested layout components	Broke UI into clean, sectioned and _components hierarchy
+Scroll animation conflict on mobile	Used custom hook useScrollDirection with throttling
+Toasts overlapping content	Customized react-toastify position and mobile styling
