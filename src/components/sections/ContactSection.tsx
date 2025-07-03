@@ -5,7 +5,7 @@ const ContactSection: React.FC = () => {
   return (
     <div className="w-full bg-[#006ABC]">
       <div className="max-w-7xl mx-auto ">
-        <div className="grid grid-cols-12 rounded-xl p-2 py-12 lg:py-20 2xl:py-36">
+        <div className="grid grid-cols-12 rounded-xl p-4 py-12 lg:py-20 2xl:py-36">
           <div className="col-span-12 md:col-span-10 md:col-start-2 2xl:col-span-10 2xl:col-start-2">
             <div className="grid gap-12 md:grid-cols-2 md:gap-6 text-white">
               

@@ -171,11 +171,11 @@ const ContactForm: React.FC<ContactFormProps> = () => {
             />
           </div>
 
-          <div className="flex justify-center md:justify-start max-w-46">
+          <div className="flex justify-center md:justify-start">
             <button
               disabled={isLoading}
               type="submit"
-              className="group relative overflow-hidden flex items-center justify-center gap-1 w-full disabled:opacity-70 disabled:cursor-not-allowed bg-transparent rounded-full transition-all duration-700 ease-in-out hover:text-black focus:text-black hover:bg-white focus:bg-white text-white font-semibold border border-white hover:border-transparent focus:border-transparent text-sm lg:text-base px-8 md:px-12 py-3 focus:outline-none focus:ring-2 focus:ring-white/50"
+              className="group max-w-46 relative overflow-hidden flex items-center justify-center gap-1 w-full disabled:opacity-70 disabled:cursor-not-allowed bg-transparent rounded-full transition-all duration-700 ease-in-out hover:text-black focus:text-black hover:bg-white focus:bg-white text-white font-semibold border border-white hover:border-transparent focus:border-transparent text-sm lg:text-base px-8 md:px-12 py-3 focus:outline-none focus:ring-2 focus:ring-white/50"
               aria-label={isLoading ? 'Submitting form' : 'Submit contact form'}
             >
               {isLoading ? 'Loading...' : 'Send'}

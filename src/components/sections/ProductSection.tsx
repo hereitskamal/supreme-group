@@ -1,9 +1,16 @@
 "use client";
-import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence, useMotionValueEvent } from 'framer-motion';
-import SolutionCard from './_components/SolutionCard';
-import CircularProgressBarButton from './_components/CircularProgressBarButton';
-import Tab from './_components/Tab';
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useSpring,
+  AnimatePresence,
+  useMotionValueEvent,
+} from "framer-motion";
+import SolutionCard from "./_components/SolutionCard";
+import CircularProgressBarButton from "./_components/CircularProgressBarButton";
+import Tab from "./_components/Tab";
 
 interface Solution {
   id: string;
@@ -17,106 +24,138 @@ const ProductSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoRefSlide2 = useRef<HTMLVideoElement>(null);
-  
+
   const [activePassengerIndex, setActivePassengerIndex] = useState<number>(0);
   const [activeCommercialIndex, setActiveCommercialIndex] = useState<number>(0);
   const [activeSlide, setActiveSlide] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
   const [isLargeDevice, setIsLargeDevice] = useState<boolean>(true);
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
 
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
   const smoothProgress = useSpring(scrollYProgress, springConfig);
 
-  const headerY = useTransform(smoothProgress, [0, 0.1], ['50vh', '5vh']);
+  const headerY = useTransform(smoothProgress, [0, 0.1], ["50vh", "5vh"]);
   const headerOpacity = useTransform(smoothProgress, [0, 0.1], [1, 1]);
 
-  const sidebarY = useTransform(smoothProgress, [0.1, 0.25], ['20vh', '0vh']);
+  const sidebarY = useTransform(smoothProgress, [0.1, 0.25], ["20vh", "0vh"]);
   const sidebarOpacity = useTransform(smoothProgress, [0.1, 0.25], [0, 1]);
 
-  const card1Opacity = useTransform(smoothProgress, [0.15, 0.3, 0.6, 0.7], [0, 1, 1, 0.2]);
+  const card1Opacity = useTransform(
+    smoothProgress,
+    [0.15, 0.3, 0.6, 0.7],
+    [0, 1, 1, 0.2]
+  );
   const card2Opacity = useTransform(smoothProgress, [0.6, 0.7], [0.2, 1]);
 
-  const videoSlide1Y = useTransform(smoothProgress, [0.2, 0.35, 0.5, 0.65], ['20vh', '0vh', '0vh', '-20vh']);
-  const videoSlide1Opacity = useTransform(smoothProgress, [0.2, 0.35, 0.5, 0.65], [0, 1, 1, 0]);
+  const videoSlide1Y = useTransform(
+    smoothProgress,
+    [0.2, 0.35, 0.5, 0.65],
+    ["20vh", "0vh", "0vh", "-20vh"]
+  );
+  const videoSlide1Opacity = useTransform(
+    smoothProgress,
+    [0.2, 0.35, 0.5, 0.65],
+    [0, 1, 1, 0]
+  );
   const videoSlide1Scale = useTransform(smoothProgress, [0.5, 0.65], [1, 0.8]);
 
-  const videoSlide2Y = useTransform(smoothProgress, [0.6, 0.75], ['30vh', '0vh']);
-  const videoSlide2Opacity = useTransform(smoothProgress, [0.6, 0.75, 0.9, 1], [0, 1, 1, 0]);
+  const videoSlide2Y = useTransform(
+    smoothProgress,
+    [0.6, 0.75],
+    ["30vh", "0vh"]
+  );
+  const videoSlide2Opacity = useTransform(
+    smoothProgress,
+    [0.6, 0.75, 0.9, 1],
+    [0, 1, 1, 0]
+  );
   const videoSlide2Scale = useTransform(smoothProgress, [0.6, 0.75], [0.9, 1]);
 
-  const controls1Y = useTransform(smoothProgress, [0.35, 0.5, 0.6, 0.7], [30, 0, 0, 50]);
-  const controls1Opacity = useTransform(smoothProgress, [0.35, 0.5, 0.6, 0.7], [0, 1, 1, 0]);
+  const controls1Y = useTransform(
+    smoothProgress,
+    [0.35, 0.5, 0.6, 0.7],
+    [30, 0, 0, 50]
+  );
+  const controls1Opacity = useTransform(
+    smoothProgress,
+    [0.35, 0.5, 0.6, 0.7],
+    [0, 1, 1, 0]
+  );
 
   const controls2Y = useTransform(smoothProgress, [0.75, 0.85], [30, 0]);
   const controls2Opacity = useTransform(smoothProgress, [0.75, 0.85], [0, 1]);
 
-  const sliderHeight = useTransform(smoothProgress, [0.6, 0.7], ['50%', '100%']);
+  const sliderHeight = useTransform(
+    smoothProgress,
+    [0.6, 0.7],
+    ["50%", "100%"]
+  );
 
   const solutions: Solution[] = [
     {
-      id: '1',
-      title: 'Complete body',
-      video: '/videos/product/PassengerAlpha.mp4',
-      poster: '/images/solutions/Passenger-Alpha-poster.webp',
-      tabImage: '/images/solutions/completeBody.png',
+      id: "1",
+      title: "Complete body",
+      video: "/videos/product/PassengerAlpha.mp4",
+      poster: "/images/solutions/Passenger-Alpha-poster.webp",
+      tabImage: "/images/solutions/completeBody.png",
     },
     {
-      id: '2',
-      title: 'Front',
-      video: '/videos/product/Front.mp4',
-      poster: '/images/solutions/Front-poster.webp',
-      tabImage: '/images/solutions/front.png',
+      id: "2",
+      title: "Front",
+      video: "/videos/product/Front.mp4",
+      poster: "/images/solutions/Front-poster.webp",
+      tabImage: "/images/solutions/front.png",
     },
     {
-      id: '3',
-      title: 'Cabin',
-      video: '/videos/product/Cabin.mp4',
-      poster: '/images/solutions/Cabin-poster.webp',
-      tabImage: '/images/solutions/cabin.png',
+      id: "3",
+      title: "Cabin",
+      video: "/videos/product/Cabin.mp4",
+      poster: "/images/solutions/Cabin-poster.webp",
+      tabImage: "/images/solutions/cabin.png",
     },
     {
-      id: '4',
-      title: 'Trunk',
-      video: '/videos/product/Trunk.mp4',
-      poster: '/images/solutions/Trunk-poster.webp',
-      tabImage: '/images/solutions/trunk.png',
+      id: "4",
+      title: "Trunk",
+      video: "/videos/product/Trunk.mp4",
+      poster: "/images/solutions/Trunk-poster.webp",
+      tabImage: "/images/solutions/trunk.png",
     },
     {
-      id: '5',
-      title: 'Exterior',
-      video: '/videos/product/Exterior.mp4',
-      poster: '/images/solutions/Exterior-poster.webp',
-      tabImage: '/images/solutions/exterior.png',
+      id: "5",
+      title: "Exterior",
+      video: "/videos/product/Exterior.mp4",
+      poster: "/images/solutions/Exterior-poster.webp",
+      tabImage: "/images/solutions/exterior.png",
     },
   ];
 
   const commercialSolutions: Solution[] = [
     {
-      id: '1',
-      title: 'Complete Body',
-      video: '/videos/product/CommercialAlpha.mp4',
-      poster: '/images/commercial/Commercial-Alpha-poster.webp',
-      tabImage: '/images/commercial/com-1.svg',
+      id: "1",
+      title: "Complete Body",
+      video: "/videos/product/CommercialAlpha.mp4",
+      poster: "/images/commercial/Commercial-Alpha-poster.webp",
+      tabImage: "/images/commercial/com-1.svg",
     },
     {
-      id: '2',
-      title: 'Engine',
-      video: '/videos/product/Commercial-Engine.mp4',
-      poster: '/images/commercial/Commercial-Engine-poster.png',
-      tabImage: '/images/commercial/com-2.svg',
+      id: "2",
+      title: "Engine",
+      video: "/videos/product/Commercial-Engine.mp4",
+      poster: "/images/commercial/Commercial-Engine-poster.png",
+      tabImage: "/images/commercial/com-2.svg",
     },
     {
-      id: '3',
-      title: 'Cabin',
-      video: '/videos/product/Commercial-Cabin.mp4',
-      poster: '/images/commercial/Commercial-Cabin-poster.png',
-      tabImage: '/images/commercial/com-3.svg',
+      id: "3",
+      title: "Cabin",
+      video: "/videos/product/Commercial-Cabin.mp4",
+      poster: "/images/commercial/Commercial-Cabin-poster.png",
+      tabImage: "/images/commercial/com-3.svg",
     },
   ];
 
@@ -141,9 +180,9 @@ const ProductSection: React.FC = () => {
         }
       }
     }
-    
+
     if (!video) return;
-    
+
     try {
       if (isPlaying) {
         video.pause();
@@ -153,17 +192,20 @@ const ProductSection: React.FC = () => {
         setIsPlaying(true);
       }
     } catch (error) {
-      console.log('Video playback interrupted:', error);
+      console.log("Video playback interrupted:", error);
       setIsPlaying(false);
     }
   }, [isPlaying, activeSlide]);
 
-  const handleTimeUpdate = useCallback((e: React.SyntheticEvent<HTMLVideoElement>): void => {
-    const target = e.target as HTMLVideoElement;
-    const { currentTime, duration } = target;
-    const vidProgress = (currentTime / duration) * 100;
-    setProgress(vidProgress);
-  }, []);
+  const handleTimeUpdate = useCallback(
+    (e: React.SyntheticEvent<HTMLVideoElement>): void => {
+      const target = e.target as HTMLVideoElement;
+      const { currentTime, duration } = target;
+      const vidProgress = (currentTime / duration) * 100;
+      setProgress(vidProgress);
+    },
+    []
+  );
 
   useMotionValueEvent(smoothProgress, "change", (latest: number) => {
     if (latest < 0.6) {
@@ -175,16 +217,17 @@ const ProductSection: React.FC = () => {
 
   useEffect(() => {
     setProgress(0);
-    
+
     const resetAndPlayVideo = async (): Promise<void> => {
-      const currentVideo = activeSlide === 0 ? videoRef.current : videoRefSlide2.current;
+      const currentVideo =
+        activeSlide === 0 ? videoRef.current : videoRefSlide2.current;
       if (currentVideo) {
         try {
           currentVideo.currentTime = 0;
           await currentVideo.play();
           setIsPlaying(true);
         } catch (error) {
-          console.log('Video reset and play interrupted:', error);
+          console.log("Video reset and play interrupted:", error);
           setIsPlaying(false);
         }
       }
@@ -200,7 +243,7 @@ const ProductSection: React.FC = () => {
         await video.play();
         setIsPlaying(true);
       } catch (error) {
-        console.log('Auto-play prevented:', error);
+        console.log("Auto-play prevented:", error);
         setIsPlaying(false);
       }
     };
@@ -228,38 +271,45 @@ const ProductSection: React.FC = () => {
     const handleResize = (): void => {
       setIsLargeDevice(window.innerWidth >= 1024);
     };
-    
+
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleVideoLoadedData = useCallback((videoElement: HTMLVideoElement, slideIndex: number): void => {
-    if (activeSlide === slideIndex && videoElement) {
-      videoElement.play().catch(() => {
-        setIsPlaying(false);
-      });
-    }
-  }, [activeSlide]);
+  const handleVideoLoadedData = useCallback(
+    (videoElement: HTMLVideoElement, slideIndex: number): void => {
+      if (activeSlide === slideIndex && videoElement) {
+        videoElement.play().catch(() => {
+          setIsPlaying(false);
+        });
+      }
+    },
+    [activeSlide]
+  );
 
   return (
     <div className="bg-black text-white">
-      <div ref={containerRef} className="relative pb-20" style={{ height: '600vh' }}>
-        <div className="sticky top-0 h-screen overflow-hidden bg-black flex flex-col justify-between">
-          
-          <motion.div
-            style={{ y: headerY, opacity: headerOpacity }}
-            className="w-fit mx-auto pt-6 z-10"
-          >
-            <h2 className="text-white font-light leading-snug text-center text-4xl lg:text-5xl">
-              Evolving the drive with{' '}
-              <span className="font-bold">360-degree</span>{' '}
-              <br className="hidden md:block " /> 
-              comprehensive solutions
-            </h2>
-          </motion.div>
+      <div
+        ref={containerRef}
+        className="relative pb-20"
+        style={{ height: isLargeDevice ? "600vh" : "auto" }}
+      >
+        {/* Large Device Layout */}
+        {isLargeDevice && (
+          <div className="sticky top-0 h-screen overflow-hidden bg-black flex flex-col justify-between">
+            <motion.div
+              style={{ y: headerY, opacity: headerOpacity }}
+              className="w-fit mx-auto pt-6 z-10"
+            >
+              <h2 className="text-white font-light leading-snug text-center text-4xl lg:text-5xl">
+                Evolving the drive with{" "}
+                <span className="font-bold">360-degree</span>{" "}
+                <br className="hidden md:block " />
+                comprehensive solutions
+              </h2>
+            </motion.div>
 
-          {isLargeDevice && (
             <div className="grid grid-cols-[35%_65%] relative h-full">
               <motion.div
                 style={{ y: sidebarY, opacity: sidebarOpacity }}
@@ -292,7 +342,7 @@ const ProductSection: React.FC = () => {
                 </motion.button>
 
                 <div className="absolute left-0 h-full w-[2px] rounded-md bg-gray-600 top-0">
-                  <motion.div 
+                  <motion.div
                     style={{ height: sliderHeight }}
                     className="w-[2px] bg-white rounded-md"
                   />
@@ -301,10 +351,10 @@ const ProductSection: React.FC = () => {
 
               <div className="relative flex items-center">
                 <motion.div
-                  style={{ 
-                    y: videoSlide1Y, 
-                    opacity: videoSlide1Opacity, 
-                    scale: videoSlide1Scale 
+                  style={{
+                    y: videoSlide1Y,
+                    opacity: videoSlide1Opacity,
+                    scale: videoSlide1Scale,
                   }}
                   className="self-center mx-auto"
                 >
@@ -321,18 +371,23 @@ const ProductSection: React.FC = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.4 }}
-                      onLoadedData={(e) => handleVideoLoadedData(e.currentTarget, 0)}
+                      onLoadedData={(e) =>
+                        handleVideoLoadedData(e.currentTarget, 0)
+                      }
                     >
-                      <source src={solutions[activePassengerIndex]?.video} type="video/mp4" />
+                      <source
+                        src={solutions[activePassengerIndex]?.video}
+                        type="video/mp4"
+                      />
                     </motion.video>
                   </AnimatePresence>
                 </motion.div>
 
                 <motion.div
-                  style={{ 
-                    y: videoSlide2Y, 
-                    opacity: videoSlide2Opacity, 
-                    scale: videoSlide2Scale 
+                  style={{
+                    y: videoSlide2Y,
+                    opacity: videoSlide2Opacity,
+                    scale: videoSlide2Scale,
                   }}
                   className="absolute top-0 left-1/2 -translate-x-1/2 w-[580px] xl:w-[750px] 2xl:w-[900px] h-full flex items-center justify-center"
                 >
@@ -344,25 +399,29 @@ const ProductSection: React.FC = () => {
                       playsInline
                       className="w-auto max-h-[360px] scale-105 min-h-[230px] h-[40vh] rounded-lg"
                       onTimeUpdate={handleTimeUpdate}
-                      poster={commercialSolutions[activeCommercialIndex]?.poster}
+                      poster={
+                        commercialSolutions[activeCommercialIndex]?.poster
+                      }
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      onLoadedData={(e) => handleVideoLoadedData(e.currentTarget, 1)}
+                      onLoadedData={(e) =>
+                        handleVideoLoadedData(e.currentTarget, 1)
+                      }
                     >
-                      <source src={commercialSolutions[activeCommercialIndex]?.video} type="video/mp4" />
+                      <source
+                        src={commercialSolutions[activeCommercialIndex]?.video}
+                        type="video/mp4"
+                      />
                     </motion.video>
                   </AnimatePresence>
                 </motion.div>
               </div>
             </div>
-          )}
 
-          {isLargeDevice && (
             <div className="flex justify-end items-center relative max-w-7xl mx-auto w-full px-6">
               <div className="flex justify-center w-[640px] xl:w-[720px] 2xl:w-[900px] relative">
-                
                 {activeSlide === 0 && (
                   <motion.div
                     style={{ y: controls1Y, opacity: controls1Opacity }}
@@ -375,7 +434,9 @@ const ProductSection: React.FC = () => {
                         title={item.title}
                         activeIndex={activePassengerIndex}
                         tabImage={item.tabImage}
-                        onClick={(selectedIndex: number) => setActivePassengerIndex(selectedIndex)}
+                        onClick={(selectedIndex: number) =>
+                          setActivePassengerIndex(selectedIndex)
+                        }
                       />
                     ))}
                   </motion.div>
@@ -393,16 +454,19 @@ const ProductSection: React.FC = () => {
                         title={item.title}
                         activeIndex={activeCommercialIndex}
                         tabImage={item.tabImage}
-                        onClick={(selectedIndex: number) => setActiveCommercialIndex(selectedIndex)}
+                        onClick={(selectedIndex: number) =>
+                          setActiveCommercialIndex(selectedIndex)
+                        }
                       />
                     ))}
                   </motion.div>
                 )}
 
                 <motion.div
-                  style={{ 
-                    y: activeSlide === 0 ? controls1Y : controls2Y, 
-                    opacity: activeSlide === 0 ? controls1Opacity : controls2Opacity 
+                  style={{
+                    y: activeSlide === 0 ? controls1Y : controls2Y,
+                    opacity:
+                      activeSlide === 0 ? controls1Opacity : controls2Opacity,
                   }}
                   className="absolute right-0 top-0 bottom-0 my-auto z-50 flex items-center"
                 >
@@ -414,52 +478,170 @@ const ProductSection: React.FC = () => {
                 </motion.div>
               </div>
             </div>
-          )}
+          </div>
+        )}
 
-          {!isLargeDevice && (
-            <div className="px-6 py-8 text-center space-y-8">
-              <div>
-                <h4 className="text-xl text-blue-400 mb-2 font-semibold">
+        {/* Mobile Layout - Matches the design image */}
+        {!isLargeDevice && (
+          <div className="px-4 py-8">
+            {/* Header */}
+            <div className="text-center mb-12">
+              <h2 className="text-white font-light leading-tight text-3xl sm:text-4xl mb-2">
+                Evolving the drive with{" "}
+                <span className="font-bold">360-degree</span> <br />
+                comprehensive solutions
+              </h2>
+            </div>
+
+            {/* Passenger Vehicles Section */}
+            <div className="mb-16">
+              <div className="text-center mb-6">
+                <h3 className="text-blue-400 text-xl font-semibold mb-2">
                   Passenger vehicles
-                </h4>
-                <p className="text-gray-300">
-                  Revving up innovation <br className="md:hidden" /> from interior to exterior.
+                </h3>
+                <p className="text-gray-300 text-base">
+                  Revving up innovation from interior to exterior.
                 </p>
-                
-                <div className="grid grid-cols-1 gap-4 mt-6">
-                  {solutions.slice(0, 3).map((item) => (
-                    <SolutionCard
-                      key={item.id}
-                      title={item.title}
-                      video={item.video}
-                      poster={item.poster}
+              </div>
+
+              {/* Main Featured Video */}
+              <div className="mb-6">
+                <div className="relative rounded-lg overflow-hidden bg-gray-900">
+                  <video
+                    muted
+                    playsInline
+                    autoPlay
+                    loop
+                    className="w-full h-64 object-cover"
+                    poster={solutions[activePassengerIndex]?.poster}
+                  >
+                    <source
+                      src={solutions[activePassengerIndex]?.video}
+                      type="video/mp4"
                     />
-                  ))}
+                  </video>
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl mb-2 text-blue-400 font-semibold">
-                  Commercial vehicles
-                </h3>
-                <p className="text-gray-300">
-                  Advancing engineering <br className="md:hidden" /> for heavy-duty vehicles.
-                </p>
-                
-                <div className="grid grid-cols-1 gap-4 mt-6">
-                  {commercialSolutions.map((item) => (
-                    <SolutionCard
-                      key={item.id}
-                      title={item.title}
-                      video={item.video}
-                      poster={item.poster}
-                    />
-                  ))}
-                </div>
+              {/* Solution Title */}
+              <div className="text-center mb-6">
+                <h4 className="text-white text-lg font-medium">
+                  {solutions[activePassengerIndex]?.title}
+                </h4>
+              </div>
+
+              {/* Tab Navigation */}
+              <div className="flex justify-center space-x-2 mb-8">
+                {solutions.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActivePassengerIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      activePassengerIndex === index
+                        ? "bg-blue-400"
+                        : "bg-gray-600"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Small Preview Images */}
+              <div className=" flex gap-2 justify-center">
+                {solutions.map((item, index) => (
+                  <Tab
+                    key={index}
+                    index={index}
+                    title={item.title}
+                    activeIndex={activePassengerIndex}
+                    tabImage={item.tabImage}
+                    onClick={(selectedIndex: number) =>
+                      setActivePassengerIndex(selectedIndex)
+                    }
+                  />
+                ))}
               </div>
             </div>
-          )}
-        </div>
+
+            {/* Commercial Vehicles Section */}
+            <div>
+              <div className="text-center mb-6">
+                <h3 className="text-blue-400 text-xl font-semibold mb-2">
+                  Commercial vehicles
+                </h3>
+                <p className="text-gray-300 text-base">
+                  Advancing engineering for heavy-duty vehicles.
+                </p>
+              </div>
+
+              {/* Main Featured Video */}
+              <div className="mb-6">
+                <div className="relative rounded-lg overflow-hidden bg-gray-900">
+                  <video
+                    muted
+                    playsInline
+                    autoPlay
+                    loop
+                    className="w-full h-64 object-cover"
+                    poster={commercialSolutions[activeCommercialIndex]?.poster}
+                  >
+                    <source
+                      src={commercialSolutions[activeCommercialIndex]?.video}
+                      type="video/mp4"
+                    />
+                  </video>
+                </div>
+              </div>
+
+              {/* Solution Title */}
+              <div className="text-center mb-6">
+                <h4 className="text-white text-lg font-medium">
+                  {commercialSolutions[activeCommercialIndex]?.title}
+                </h4>
+              </div>
+
+              {/* Tab Navigation */}
+              <div className="flex justify-center space-x-2 mb-8">
+                {commercialSolutions.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveCommercialIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      activeCommercialIndex === index
+                        ? "bg-blue-400"
+                        : "bg-gray-600"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Small Preview Images */}
+              <div className=" flex gap-2 justify-center">
+                {commercialSolutions.map((item, index) => (
+                  <div key={item.id} className="aspect-square">
+                    {/* <video
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover rounded-lg"
+                      poster={item.poster}
+                    >
+                      <source src={item.video} type="video/mp4" />
+                    </video> */}
+                    <Tab
+                      key={item.id}
+                      index={index}
+                      title={item.title}
+                      activeIndex={activeCommercialIndex}
+                      tabImage={item.tabImage}
+                      onClick={(selectedIndex: number) =>
+                        setActiveCommercialIndex(selectedIndex)
+                      }
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -102,7 +102,7 @@ const MobileNavModal = ({ toggle }: { toggle: () => void }) => {
             href="https://www.linkedin.com/company/supreme-group-company/"
            
             rel="noopener noreferrer"
-            className="flex items-center gap-2 text-white/70 hover:text-white transition-colors mb-4"
+            className="flex pl-4 items-center gap-2 text-white/70 hover:text-white transition-colors mb-4"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -112,12 +112,11 @@ const MobileNavModal = ({ toggle }: { toggle: () => void }) => {
               <path d="M4.98304 7.19704C6.19144 7.19704 7.17104 6.21744 7.17104 5.00904C7.17104 3.80065 6.19144 2.82104 4.98304 2.82104C3.77464 2.82104 2.79504 3.80065 2.79504 5.00904C2.79504 6.21744 3.77464 7.19704 4.98304 7.19704Z" />
               <path d="M9.23697 8.85493V20.9939H13.006V14.9909C13.006 13.4069 13.304 11.8729 15.268 11.8729C17.205 11.8729 17.229 13.6839 17.229 15.0909V20.9949H21V14.3379C21 11.0679 20.296 8.55493 16.474 8.55493C14.639 8.55493 13.409 9.56193 12.906 10.5149H12.855V8.85493H9.23697ZM3.09497 8.85493H6.86997V20.9939H3.09497V8.85493Z" />
             </svg>
-            LinkedIn
           </a>
           
           <button 
             onClick={toggle}
-            className="w-full bg-[#5CD6FF] hover:bg-blue-700 text-black px-6 py-3 rounded-full transition-colors"
+            className="w-full bg-[#5CD6FF] mt-4 hover:bg-blue-700 text-black px-6 py-3 rounded-full transition-colors"
           >
             Contact Us
           </button>
@@ -127,7 +126,7 @@ const MobileNavModal = ({ toggle }: { toggle: () => void }) => {
   )
 }
 
-export default function Navbar() {
+export default function Header() {
   const [isOpen, toggleState] = useReducer((s) => !s, false)
   const { isVisible } = useScrollDirection()
 
