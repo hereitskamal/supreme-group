@@ -1,0 +1,182 @@
+{
+  "user": {
+    "id": "kamal-sharma",
+    "name": "Kamal Sharma",
+    "headline": "Senior Frontend Developer at Squadra Media | React & Next.js Expert | Building Scalable Web Applications",
+    "location": "Bengaluru, Karnataka, India",
+    "connections": 500,
+    "mutualConnections": 12,
+    "profileImage": "/images/kamal.png",
+    "backgroundImage": "/images/mern.png",
+    "isFollowing": false,
+    "isConnected": false,
+    "about": "Dedicated Software Developer with comprehensive experience in building robust web applications using modern JavaScript frameworks. Proficient in end-to-end development, with a focus on creating scalable, user-friendly solutions. Recognized for technical expertise and a results-driven approach to software development.",
+    "email": "itskamalofficial@gmail.com",
+    "phone": "(091) 97541-77313"
+  },
+  "posts": [
+    {
+      "id": 1,
+      "author": {
+        "name": "Kamal Sharma",
+        "headline": "Senior Frontend Developer at Squadra Media",
+        "profileImage": "/profile.jpg",
+        "isVerified": false
+      },
+      "content": "🚀 Just launched a comprehensive Learning Management System for LYNQ using cutting-edge technologies!\n\nKey achievements:\n✅ Led frontend development with React, TypeScript, GraphQL, and Tailwind\n✅ Built responsive company website with Next.js and Framer Motion\n✅ Collaborated with clients and backend teams for scalable solutions\n✅ Implemented CI practices and ensured design consistency\n\nThe focus was on creating an intuitive user experience while maintaining enterprise-grade architecture. Excited about the impact on learning outcomes!\n\n#React #TypeScript #GraphQL #WebDevelopment #LMS",
+      "timestamp": "2h",
+      "images": ["/lms-screenshot.jpg"],
+      "reactions": {
+        "like": 42,
+        "love": 8,
+        "insightful": 5,
+        "celebrate": 12
+      },
+      "comments": 15,
+      "shares": 3,
+      "hasLiked": false,
+      "hasCommented": false
+    },
+    {
+      "id": 2,
+      "author": {
+        "name": "Kamal Sharma",
+        "headline": "Senior Frontend Developer at Squadra Media",
+        "profileImage": "/profile.jpg",
+        "isVerified": false
+      },
+      "content": "💡 Recently improved an e-commerce platform's conversion rate and session time through strategic frontend optimizations!\n\nWhat I implemented:\n🔧 Reusable component library with Storybook\n⚡ Database management system refactoring (20% faster data processing)\n🎨 Clean UX for Universal Dashboard cross-product insights\n\nSmall optimizations can make huge differences in user experience. What's your go-to performance optimization technique?\n\n#WebDevelopment #Performance #MERN #JavaScript",
+      "timestamp": "1w",
+      "reactions": {
+        "like": 28,
+        "insightful": 15,
+        "celebrate": 6
+      },
+      "comments": 8,
+      "shares": 2,
+      "hasLiked": false,
+      "hasCommented": false
+    }
+  ],
+  "experience": [
+    {
+      "id": 1,
+      "title": "Senior Frontend Developer",
+      "company": {
+        "name": "Squadra Media",
+        "logo": "/squadra-logo.png",
+        "size": "51-200 employees",
+        "industry": "Technology"
+      },
+      "employmentType": "Full-time",
+      "startDate": "Oct 2024",
+      "endDate": "Present",
+      "duration": "3 mos",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Led frontend development of LMS for LYNQ using React, TypeScript, GraphQL, and Tailwind, improving learning flow and UX.\n\nBuilt Squadra's responsive company website with Next.js, Framer Motion, and Tailwind CSS.\n\nCollaborated with clients and backend teams to define scalable solutions and feature roadmaps.\n\nOversaw frontend team, ensured design consistency, and implemented CI practices.",
+      "skills": [
+        "React.js",
+        "TypeScript",
+        "GraphQL",
+        "Tailwind CSS",
+        "Next.js",
+        "Framer Motion"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "MERN Stack Developer",
+      "company": {
+        "name": "Insignia Consultancy Solutions",
+        "logo": "/insignia-logo.png",
+        "size": "11-50 employees",
+        "industry": "IT Services"
+      },
+      "employmentType": "Full-time",
+      "startDate": "Jan 2024",
+      "endDate": "Oct 2024",
+      "duration": "10 mos",
+      "location": "Remote",
+      "description": "Worked on internal tools and consumer-facing platforms with strong focus on modular UI and performance.\n\nBuilt key e-commerce features that improved conversion rate and session time.\n\nDeveloped a reusable component library in Storybook for cross-team use.\n\nRefactored backend and frontend of the database management system, improving data processing speed by 20%.\n\nContributed to Universal Dashboard for cross-product insights with clean UX.",
+      "skills": [
+        "MongoDB",
+        "Express.js",
+        "React.js",
+        "Node.js",
+        "JavaScript",
+        "Storybook"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Web Developer",
+      "company": {
+        "name": "VJ Smart Living",
+        "logo": "/vj-logo.png",
+        "size": "1-10 employees",
+        "industry": "Smart Home Technology"
+      },
+      "employmentType": "Full-time",
+      "startDate": "Jan 2022",
+      "endDate": "Dec 2023",
+      "duration": "2 yrs",
+      "location": "Bengaluru, Karnataka, India",
+      "description": "Focused on smart home UIs, CRM, and business automation tools.\n\nBuilt a user-friendly dashboard for managing smart devices remotely.\n\nDeveloped CRM features that enhanced customer communication and support handling.\n\nAutomated workflows for service requests and tracking using custom UI modules.\n\nOptimized interfaces for speed, accessibility, and cross-device compatibility.",
+      "skills": [
+        "React.js",
+        "JavaScript",
+        "HTML5",
+        "CSS",
+        "UI/UX Design",
+        "MongoDB"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "id": 1,
+      "school": "Rajiv Gandhi Proudyogiki Vishwavidyalaya",
+      "degree": "Bachelor's Degree",
+      "field": "Computer Science Engineering",
+      "duration": "2015 - 2019",
+      "logo": "/rgpv-logo.png"
+    }
+  ],
+  "skills": [
+    { "name": "React.js", "endorsements": 52, "endorsed": false },
+    { "name": "TypeScript", "endorsements": 45, "endorsed": false },
+    { "name": "Next.js", "endorsements": 38, "endorsed": false },
+    { "name": "JavaScript", "endorsements": 48, "endorsed": true },
+    { "name": "GraphQL", "endorsements": 28, "endorsed": false },
+    { "name": "Tailwind CSS", "endorsements": 35, "endorsed": false },
+    { "name": "Node.js", "endorsements": 32, "endorsed": false },
+    { "name": "MongoDB", "endorsements": 25, "endorsed": false },
+    { "name": "Express.js", "endorsements": 22, "endorsed": false },
+    { "name": "Framer Motion", "endorsements": 18, "endorsed": false },
+    { "name": "HTML5", "endorsements": 40, "endorsed": true },
+    { "name": "CSS", "endorsements": 38, "endorsed": true },
+    { "name": "Bootstrap", "endorsements": 30, "endorsed": false },
+    { "name": "Storybook", "endorsements": 15, "endorsed": false },
+    { "name": "OAuth 2.0", "endorsements": 12, "endorsed": false },
+    { "name": "AWS S3", "endorsements": 20, "endorsed": false },
+    { "name": "Git", "endorsements": 35, "endorsed": true },
+    { "name": "UI/UX Design", "endorsements": 28, "endorsed": false }
+  ],
+  "certifications": [],
+  "projects": [
+    {
+      "id": 1,
+      "name": "LYNQ Learning Management System",
+      "description": "Enterprise-grade LMS built with React, TypeScript, GraphQL, and Tailwind CSS focusing on improved learning flow and user experience.",
+      "technologies": ["React.js", "TypeScript", "GraphQL", "Tailwind CSS"],
+      "company": "Squadra Media"
+    },
+    {
+      "id": 2,
+      "name": "Smart Device Management Dashboard",
+      "description": "User-friendly dashboard for remote smart device management with real-time monitoring and control features.",
+      "technologies": ["React.js", "JavaScript", "Node.js", "MongoDB"],
+      "company": "VJ Smart Living"
+    }
+  ]
+}

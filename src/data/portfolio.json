@@ -1,0 +1,115 @@
+
+{
+  "personal": {
+    "name": "Kamal Sharma",
+    "title": "Senior Frontend Developer",
+    "description": "Crafting exceptional digital experiences through thoughtful design and precision engineering",
+    "email": "itskamalofficial@gmail.com",
+    "phone": "(091) 97541-77313",
+    "location": "Bengaluru, Karnataka"
+  },
+  "navigation": ["Work", "About", "Experience", "Contact"],
+  "hero": {
+    "tagline": "Senior Frontend Developer",
+    "subtitle": "Crafting exceptional digital experiences through thoughtful design and precision engineering",
+    "buttons": [
+      { "text": "View Work", "type": "primary" },
+      { "text": "Contact", "type": "secondary" }
+    ]
+  },
+  "about": {
+    "title": "Bridging vision and execution",
+    "content": [
+      "I specialize in transforming complex business requirements into elegant, scalable solutions that users love and businesses depend on.",
+      "With deep expertise in React, Next.js, and modern web technologies, I focus on creating experiences that are both beautiful and functional, always with performance and accessibility at the forefront."
+    ],
+    "stats": [
+      { "number": "3+", "label": "Years of expertise" },
+      { "number": "50+", "label": "Projects delivered" },
+      { "number": "∞", "label": "Problems solved" }
+    ]
+  },
+  "experience": [
+    {
+      "role": "Senior Frontend Developer",
+      "company": "Squadra Media",
+      "period": "2024 – Present",
+      "location": "Bengaluru",
+      "description": "Leading frontend architecture for enterprise learning management systems.",
+      "highlights": [
+        "React ecosystem leadership",
+        "TypeScript implementation",
+        "Team mentorship",
+        "Client collaboration"
+      ]
+    },
+    {
+      "role": "MERN Stack Developer",
+      "company": "Insignia Consultancy Solutions",
+      "period": "2024",
+      "location": "Remote",
+      "description": "Worked on internal tools and consumer-facing platforms with strong focus on modular UI and performance.",
+      "highlights": [
+        "E-commerce optimization",
+        "Component library development",
+        "Performance improvements",
+        "Cross-team collaboration"
+      ]
+    },
+    {
+      "role": "Web Developer",
+      "company": "VJ Smart Living",
+      "period": "2022 – 2023",
+      "location": "Bengaluru",
+      "description": "Focused on smart home UIs, CRM, and business automation tools.",
+      "highlights": [
+        "Smart device management",
+        "CRM development",
+        "Workflow automation",
+        "Cross-device optimization"
+      ]
+    }
+  ],
+  "skills": [
+    { "name": "React.js", "category": "Frontend" },
+    { "name": "Next.js", "category": "Framework" },
+    { "name": "TypeScript", "category": "Language" },
+    { "name": "Tailwind CSS", "category": "Styling" },
+    { "name": "Framer Motion", "category": "Animation" },
+    { "name": "GraphQL", "category": "API" },
+    { "name": "Node.js", "category": "Backend" },
+    { "name": "MongoDB", "category": "Database" }
+  ],
+  "projects": [
+    {
+      "title": "LYNQ LMS",
+      "description": "Enterprise learning management system with advanced analytics and user engagement features.",
+      "tech": ["React", "TypeScript", "GraphQL"],
+      "year": "2024",
+      "status": "Live"
+    },
+    {
+      "title": "E-commerce Platform",
+      "description": "High-performance online store with seamless checkout and inventory management.",
+      "tech": ["Next.js", "MongoDB", "Stripe"],
+      "year": "2023",
+      "status": "Live"
+    },
+    {
+      "title": "Smart Home Dashboard",
+      "description": "User-friendly interface for managing smart devices remotely with real-time monitoring.",
+      "tech": ["React", "Node.js", "MongoDB"],
+      "year": "2023",
+      "status": "Live"
+    }
+  ],
+  "contact": {
+    "title": "Let's create something exceptional",
+    "subtitle": "I'm always interested in discussing new opportunities and innovative projects",
+    "formFields": [
+      { "name": "name", "type": "text", "placeholder": "Name" },
+      { "name": "email", "type": "email", "placeholder": "Email" },
+      { "name": "message", "type": "textarea", "placeholder": "Message", "rows": 4 }
+    ]
+  }
+}

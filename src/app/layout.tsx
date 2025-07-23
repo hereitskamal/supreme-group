@@ -1,18 +1,16 @@
-// app/layout.tsx or RootLayout.tsx
-import Footer from "@/components/layout/Footer";
-import "./globals.css";
-import { Manrope } from "next/font/google";
-import Header from "@/components/layout/Header";
 
-const manrope = Manrope({
+import "./globals.css";
+import { Source_Serif_4 } from "next/font/google";
+
+const sourceSans = Source_Serif_4({
   subsets: ["latin"],
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-manrope",
+  weight: ["200", "300", "400", "600", "700"],
+  variable: "--font-source-sans",
 });
 
 export const metadata = {
-  title: "Supreme Group",
-  description: "Providing Soft Trims and NVH solutions for seamless rides",
+  title: "Kamal sharma",
+  description: "Experienced MERN Stack Developer skilled in building scalable web applications",
 };
 
 export default function RootLayout({
@@ -21,11 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={manrope.variable}>
-      <body className="min-h-screen bg-white text-gray-900 antialiased font-sans">
-        <Header />
+    <html lang="en" className={sourceSans.variable}>
+      <body className="min-h-screen bg-white text-gray-900 antialiased font-source-sans">
+        {/* <Header /> */}
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   );
